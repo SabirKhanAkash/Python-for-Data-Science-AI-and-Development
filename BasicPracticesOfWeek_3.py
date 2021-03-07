@@ -22,3 +22,26 @@ if albumYear2<2014 and albumYear2 !=2010:
     print("Hello")
 else:
     print("Wow")
+
+
+# All about Loops
+squares = ["red", "green", "yellow", "purple", "blue"]
+
+for i in range(0,4):
+    print(squares[i])
+print()
+
+for i,square in enumerate(squares):
+    print(i,square)
+
+print()
+NewSquares = []
+i = 0
+while(squares[i] != 'blue'):
+    NewSquares.append(squares[i])
+    i = i+1
+
+print(NewSquares)
+
+for i,x in enumerate(['A','B','C']):
+    print(i,2*x)
