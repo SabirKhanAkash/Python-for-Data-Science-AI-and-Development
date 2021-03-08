@@ -45,3 +45,48 @@ print(NewSquares)
 
 for i,x in enumerate(['A','B','C']):
     print(i,2*x)
+
+
+#All about Function
+
+string = [10,4,5,3,56,84,23]
+print(string)
+print(len(string))
+print(sum(string))
+print(sorted(string))
+print(string.sort())
+print(string)
+
+
+def add1(a):
+    a = a+1
+    return a
+
+c = add1(2)
+c = add1(10)
+
+print(c)
+
+def Mult(a,b):
+    c = a*b
+    return c
+
+print(Mult(2,'Michael jackson '))
+
+def NoWork():
+    pass
+
+print(NoWork())
+
+def printStuff(stuff):
+    for i,s in enumerate(stuff):
+        print("Album",i,"Rating : ",s)
+
+printStuff([45,34,34,43])
+
+a=1
+
+def do(x):
+    return(x+a)
+
+print(do(1))
