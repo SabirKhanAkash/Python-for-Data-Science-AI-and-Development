@@ -90,3 +90,19 @@ def do(x):
     return(x+a)
 
 print(do(1))
+
+
+#All about Exception Handling
+
+try:
+    getfile = open("myfile", "r")
+    getfile.write("My file for exception handling.")
+except IOError:
+    print("Unable to open or read the data in the file")
+# except:
+#     print("Some other error occured!")
+else:
+    print('The file was written successfully')
+finally:
+    getfile.close()
+    print("File is closed now")
