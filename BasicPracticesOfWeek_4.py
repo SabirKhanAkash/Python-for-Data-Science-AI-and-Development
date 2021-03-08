@@ -26,3 +26,11 @@ with open("Doraemon.txt","r") as readfile:
     with open("Hello.txt","w") as writefile:
         for line in readfile:
             writefile.write(line)
+
+import pandas as pd
+
+csv_path = 'credit_data.csv'
+df = pd.read_csv(csv_path)
+print(df.head())
+
+
