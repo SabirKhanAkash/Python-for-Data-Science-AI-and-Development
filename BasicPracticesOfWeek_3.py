@@ -106,3 +106,27 @@ else:
 finally:
     getfile.close()
     print("File is closed now")
+
+
+#All about objects and classes
+
+
+Ratings = [10,2,3,5,7,3,8,3]
+
+class Circle(object):
+    def __init__(self,radius,color):
+        self.radius = radius
+        self.color = color
+    def add_radius(self,r):
+        self.radius = self.radius + r
+        return (self.radius)
+    def drawCircle(self):
+        RedCircle = Circle(10,"red")
+        r = RedCircle.radius
+        c = RedCircle.color
+        print(r)
+        print(c)
+    drawCircle()
+
+C1 = Circle(10,"red")
+print(C1)
