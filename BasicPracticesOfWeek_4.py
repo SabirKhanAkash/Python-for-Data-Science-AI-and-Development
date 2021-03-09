@@ -122,3 +122,5 @@ print(Z)
 X=np.array([[1,0,1],[2,2,2]])
 out=X[0,1:3]
 print(out)
+
+
