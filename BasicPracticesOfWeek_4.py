@@ -27,6 +27,8 @@ with open("Doraemon.txt","r") as readfile:
         for line in readfile:
             writefile.write(line)
 
+#All about Pandas
+
 import pandas as pd
 
 csv_path = 'credit_data.csv'
@@ -34,3 +36,60 @@ df = pd.read_csv(csv_path)
 print(df.head())
 
 
+#All about Numpy
+
+import numpy as np
+
+# a = ["0",1,"two",2,3,"three"]
+a = np.array(["0",1,"two",2,3,"three"])
+
+print(type(a))
+print(a.dtype)
+
+a[0] = 100
+print(a)
+print(a[3:5])
+
+u = [1,0]
+v = [0,1]
+
+z = []
+
+for n,m in zip(u,v):
+    z.append(n+m)
+
+print(z)
+
+u = np.array([1,0])
+v = np.array([0,1])
+
+z = u+v
+print(z)
+
+y = np.array([1,2])
+z = 2*y
+print(z)
+
+m = np.array([2,1])
+n = np.array([2,4])
+
+z = np.dot(m,n)
+print(z)
+
+u = np.array([1,2,3,4])
+z = u+1
+print(z)
+x = u.max()
+print(x)
+
+x = np.linspace(0,2*np.pi, 100)
+y = np.sin(x)
+print(y)
+
+z = np.linspace(0,2*np.pi,100)
+print(z)
+import matplotlib.pyplot as plt
+# %matplotlib inline
+
+plt.plot(x,y)
+plt.show()
