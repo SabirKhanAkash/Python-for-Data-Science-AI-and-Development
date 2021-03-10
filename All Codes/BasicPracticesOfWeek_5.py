@@ -116,4 +116,77 @@ print("GET request URL: ",r.url,"\n")
 print("POST request body: ",r_post.request.body,"\n")
 print("GET request body: ",r.request.body,"\n")
 
-print(r_post.json()['form'])
+print(r_post.json()['form'],"\n")
+
+
+#Webscraping
+
+from bs4 import BeautifulSoup
+
+html = "<!DOCTYPE html><html><head><title>Page Title</title></head><body><h3><b id='boldest'>Lebron James</b></h3><p> Salary: $ 92000000 </p><h3> Stephen Curry</h3><p> Salary: $85000000</p><h3> Kevin Durant </h3><p> Salary: $73200000</p></body></html>"
+soup = BeautifulSoup(html,'html5lib')
+tag_object = soup.title
+print(tag_object,"\n")
+tag_object = soup.h3
+print(tag_object,"\n")
+tag_child = tag_object.b
+print(tag_child,"\n")
+tag_parent = tag_child.parent
+print(tag_parent,"\n")
+sibling_1 = tag_object.next_sibling
+print(sibling_1,"\n")
+sibling_2 = sibling_1.next_sibling
+print(sibling_2,"\n")
+print(tag_child.attrs,"\n")
+print(tag_child.string,"\n")
+
+htmlTable = "<table><tr><td>Pizza Place</td><td>Orders</td><td>Slices</td></tr><tr><td>Domino;s Pizza</td><td>10</td><td>100</td></tr><tr><td>Little Caesars</td><td>12</td><td>144</td></table>"
+
+table = BeautifulSoup(htmlTable, 'html5lib')
+table_row = table.find_all(name='tr')
+print(table_row,"\n")
+first_row = table_row[0]
+print(first_row," and ",first_row.td,"\n")
+
+for i,row in enumerate(table_row):
+    print("row ",i)
+    cells = row.find_all("td")
+
+    for j,cell in enumerate(cells):
+        print("Column ", j, "cell ",cell)
+
+import requests
+from bs4 import BeautifulSoup
+
+page = requests.get("https://github.com/SabirKhanAkash").text
+
+soup = BeautifulSoup(page, "html.parser")
+
+artists = soup.find_all('a')
+
+for artist in artists:
+    fullLink = artist.get('href')
+    print("\n",fullLink)
+
+
+#All about working with csv, xml, json, xlsx in python
+
+import json
+with open('filesample.json','r') as openfile:
+    json_object = json.load(openfile)
+
+print(json_object,"\n")
+
+import xml.etree.ElementTree as etree
+tree = etree.parse("filesample.xml")
+root = tree.getroot()
+columns = ["id","income", "loan"]
+df = pd.DataFrame(columns=columns)
+
+for node in root:
+    id = node.find("clientid").text
+    income = node.find("income").text
+    loan = node.find("loan").text
+    print("ID: ",id)
+    print("Income: ",income)
+    print("Loan: ",loan)
