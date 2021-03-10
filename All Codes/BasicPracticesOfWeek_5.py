@@ -31,7 +31,7 @@ fig = go.Figure(data=[go.Candlestick(x=candlestick_data.index, open = candlestic
                       ])
 
 fig.update_layout(xaxis_rangeslider_visible=False, xaxis_title='Date', yaxis_title='Price (USD $)', title='Bitcoin Candlestick Chart Over Past 30 Days')
-plt.plot(fig, filename = 'bitcoin_candlestick_graph.html')
+# plt.plot(fig, filename = 'bitcoin_candlestick_graph.html')
 
 
 
@@ -83,5 +83,37 @@ plt.plot(fig, filename = 'bitcoin_candlestick_graph.html')
 import requests
 url = 'https://www.ibm.com/'
 r = requests.get(url)
-print(r.status_code)
-print(r.request.headers)
+print(r.status_code,"\n")
+print(r.request.headers,"\n")
+print(r.request.body,"\n")
+print(r.headers,"\n")
+
+header = r.headers
+
+print(header['date'],"\n")
+print(header['content-Type'],"\n")
+print(r.encoding,"\n")
+print(r.text[0:100],"\n")
+
+# http://httbin.org/get?Name=Akash&ID=1603108
+
+url_get = 'http://httpbin.org/get'
+payload = {"name":"Akash","ID":"1603108"}
+r = requests.get(url_get,params=payload)
+print(r.url,"\n")
+print(r.request.body,"\n")
+print(r.status_code,"\n")
+print(r.text,"\n")
+print(r.json(),"\n")
+
+url_post = "http://httpbin.org/post"
+payload = {"name":"Akash","ID":"1603108"}
+r_post = requests.post(url_post,data=payload)
+
+print("POST request URL: ",r_post.url,"\n")
+print("GET request URL: ",r.url,"\n")
+
+print("POST request body: ",r_post.request.body,"\n")
+print("GET request body: ",r.request.body,"\n")
+
+print(r_post.json()['form'])
