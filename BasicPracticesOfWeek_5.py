@@ -3,6 +3,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from pygments.lexers import go
+import plotly.graph_objects as go
 
 dict = {'a':[11,22,33],'b':[12,22,32]}
 df = pd.DataFrame(dict)
@@ -33,3 +34,54 @@ fig.update_layout(xaxis_rangeslider_visible=False, xaxis_title='Date', yaxis_tit
 plt.plot(fig, filename = 'bitcoin_candlestick_graph.html')
 
 
+
+# from ibm_watson import SpeechToTextV1
+#
+# url_s2t = "https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/001e25b2-526f-4a45-90ec-0d8cad74df70"
+# iam_apikey_s2t = "6HdDB1ErYGswPdVHRes99MzeX50se4vxB6k5l6HeEAM2"
+# s2t = SpeechToTextV1(iam_apikey=iam_apikey_s2t, url = url_s2t)
+#
+# filename = 'audio-file.flac'
+#
+# with open(filename, mode="rb") as flac:
+#     response = s2t.recognize(audio=flac, content=flac, content_type='audio/flac')
+#
+# print(response.result)
+# recognized_text = response.result['result'[0]["alternatives"][0]["transcript"]]
+# print()
+# print(recognized_text)
+#
+#
+# from ibm_watson import LanguageTranslatorV3
+# url_lt = 'https://gateway.watsonplatform/net/language-translator/api'
+# apikey_lt = 'f5sAznhrKQyvBFFaZbtF60m5tzLbqWhyALQawBg5TjRI'
+# version_lt = '2018-05-01'
+# language_translator = LanguageTranslatorV3(iam_apikey=apikey_lt, url=url_lt, version=version_lt)
+# language_translator.list_identifiable_language().get_result()
+#
+# recognized_text = 'hello this is python'
+# translation_response = language_translator.translate(text=recognized_text, model_id='en-es')
+# translation = translation_response.get_result()
+#
+# translation_new = language_translator.translate(text=spanish_translation, model_id='es-en').get_result()
+# translation_eng = translation_new['translations'][0]['translation']
+# print(translation_eng)
+
+
+# SpeechToText API
+# 6HdDB1ErYGswPdVHRes99MzeX50se4vxB6k5l6HeEAM2
+# https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/001e25b2-526f-4a45-90ec-0d8cad74df70
+
+
+# Languagetranslator API
+# H2ovmASp90KH5-FloxVhe8wrj_F3fe786Je7n4dy6l4i
+# https://api.us-south.language-translator.watson.cloud.ibm.com/instances/6fb65312-4dea-47f9-a5c9-5f84d3f45a85
+
+
+#All about REST APIs and HTTP Requests
+
+import requests
+url = 'https://www.ibm.com/'
+r = requests.get(url)
+print(r.status_code)
+print(r.request.headers)
